@@ -10,7 +10,7 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '2524820e-a25d-4bae-8862-9e5ec802a3b5'
+  dockerRegistryServiceConnection: '1bbaac53-e078-4d77-ab27-bceb39f2e810'
   imageRepository: 'lhsacr'
   containerRegistry: 'lhsacr.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
