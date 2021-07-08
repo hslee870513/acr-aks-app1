@@ -52,6 +52,6 @@ stages:
         kubernetesServiceEndpoint: 'hslee-aks'
         namespace: 'staging'
         command: 'expose'
-        arguments: '--type=LoadBalancer deployment staging-$(imageRepository) --port 80'
+        arguments: '--type=LoadBalancer deployment staging-$(imageRepository)-$(tag) --port 80'
         secretType: 'dockerRegistry'
         containerRegistryType: 'Azure Container Registry'
