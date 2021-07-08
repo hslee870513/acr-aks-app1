@@ -37,3 +37,12 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    - task: Kubernetes@1
+      inputs:
+        connectionType: 'Kubernetes Service Connection'
+        kubernetesServiceEndpoint: 'hslee-aks'
+        namespace: 'staging'
+        command: 'create'
+        arguments: 'deployment staging-$(imageRepository) --image=$(containerRegistry)/$(imageRepository)/$(tag)'
+        secretType: 'dockerRegistry'
+        containerRegistryType: 'Azure Container Registry'
