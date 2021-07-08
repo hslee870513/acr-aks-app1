@@ -43,6 +43,15 @@ stages:
         kubernetesServiceEndpoint: 'hslee-aks'
         namespace: 'staging'
         command: 'create'
-        arguments: 'deployment staging-$(imageRepository) --image=$(containerRegistry)/$(imageRepository)/$(tag)'
+        arguments: 'deployment staging-$(imageRepository)-$(tag) --image=$(containerRegistry)/$(imageRepository):$(tag)'
+        secretType: 'dockerRegistry'
+        containerRegistryType: 'Azure Container Registry'
+    - task: Kubernetes@1
+      inputs:
+        connectionType: 'Kubernetes Service Connection'
+        kubernetesServiceEndpoint: 'hslee-aks'
+        namespace: 'staging'
+        command: 'expose'
+        arguments: '--type=LoadBalancer deployment staging-$(imageRepository) --port 80'
         secretType: 'dockerRegistry'
         containerRegistryType: 'Azure Container Registry'
