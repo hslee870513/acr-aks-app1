@@ -10,9 +10,9 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '2d976bf2-fa74-4790-bae6-73700966afd0'
-  imageRepository: 'hsleeacraksapp'
-  containerRegistry: 'hsleeacr.azurecr.io'
+  dockerRegistryServiceConnection: '2524820e-a25d-4bae-8862-9e5ec802a3b5'
+  imageRepository: 'lhsacr'
+  containerRegistry: 'lhsacr.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
 
